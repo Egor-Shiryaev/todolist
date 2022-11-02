@@ -4,8 +4,9 @@ import {FilterValuesType, TaskType} from './App';
 type TodoListPropsType = {
     title: string
     tasks: Array<TaskType>
-    removeTask: (taskId: number) => void
+    removeTask: (taskId: string) => void
     changeFilter:(filter:FilterValuesType) =>void
+    addTask :(title:string) =>void
 }
 
 const TodoList = (props: TodoListPropsType) => {
@@ -29,7 +30,7 @@ const TodoList = (props: TodoListPropsType) => {
             <h3>{props.title}</h3>
             <div>
                 <input/>
-                <button>+</button>
+                <button onClick={()=>props.addTask('A')}>+</button>
             </div>
             <ul>
                 {tasksJSXItemList}
